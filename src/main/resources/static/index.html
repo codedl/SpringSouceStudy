@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>springboot</title>
+</head>
+<body>
+<form action="/user" method="get">
+    <input type="submit" value="get所有用户">
+</form>
+<form action="/user" method="post">
+    <input type="submit" value="post所有用户">
+</form>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="PUT"/>
+    <input type="submit" value="put所有用户">
+</form>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <input type="submit" value="delete所有用户">
+</form>
+<div>
+    <form  action="/pojo" method="POST">
+        <input type="text" name="name" value="leding">
+        <input type="text" name="age" value="28">
+        <input type="text" name="pet" value="xiaohu,05">
+        <input type="submit" value="submit">
+    </form>
+</div>
+<form action="/file" method="post" enctype="multipart/form-data">
+    <input type="file"  name="file" >
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
