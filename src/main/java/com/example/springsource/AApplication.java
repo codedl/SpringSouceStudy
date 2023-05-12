@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //@EnableTransactionManagement//开启事务
 @EnableAspectJAutoProxy//开启aop
-@MapperScan(value = "com.example.springsource.mapper"/*annotationClass = MybatisDao.class*/)//mybatis
+//@MapperScan(value = "com.example.springsource.mapper"/*annotationClass = MybatisDao.class*/)//mybatis
+@tk.mybatis.spring.annotation.MapperScan("com.example.springsource.mapper")
 @EnableAsync //创建线程池
 @SpringBootApplication
 public class AApplication {

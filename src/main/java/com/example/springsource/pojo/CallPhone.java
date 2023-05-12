@@ -1,10 +1,20 @@
 package com.example.springsource.pojo;
 
+import com.example.springsource.tk.WithNull;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
+@Table(name = "call_phone")
 public class CallPhone implements Serializable {
+    @Column(name = "call_phone")
     String callPhone;
+    @Column(name = "original_phone")
+    @WithNull
     String originalPhone;
+    @Id
     Integer id;
     String operateTime;
 
