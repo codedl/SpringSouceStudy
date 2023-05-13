@@ -24,7 +24,7 @@ public class TkSqlHelper extends SqlHelper {
         EntityColumn logicDeleteColumn = null;
         //当某个列有主键策略时，不需要考虑他的属性是否为空，因为如果为空，一定会根据主键策略给他生成一个值
         for (EntityColumn column : columnSet) {
-            Boolean notNull = !column.getEntityField().isAnnotationPresent(WithNull.class);
+            Boolean withNull = column.getEntityField().isAnnotationPresent(WithNull.class);
             if (column.getEntityField().isAnnotationPresent(Version.class)) {
                 if (versionColumn != null) {
                     throw new VersionException(entityClass.getCanonicalName() + " 中包含多个带有 @Version 注解的字段，一个类中只能存在一个带有 @Version 注解的字段!");
@@ -52,10 +52,11 @@ public class TkSqlHelper extends SqlHelper {
                     sql.append(column.getColumn()).append(" = #{").append(column.getProperty()).append("Version},");
                 } else if (column == logicDeleteColumn) {
                     sql.append(logicDeleteColumnEqualsValue(column, false)).append(",");
-                } else if (notNull) {
-                    sql.append(SqlHelper.getIfNotNull(entityName, column, column.getColumnEqualsHolder(entityName) + ",", notEmpty));
-                } else {
+                } else if (withNull) {
                     sql.append(column.getColumnEqualsHolder(entityName) + ",");
+                } else {
+                    sql.append(SqlHelper.getIfNotNull(entityName, column, column.getColumnEqualsHolder(entityName) + ",", notEmpty));
+
                 }
             }
         }

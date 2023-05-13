@@ -7,7 +7,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.provider.base.BaseUpdateProvider;
 
 @RegisterMapper
-public interface BaseUpdateWithNull<T> extends Mapper<T> {
+public interface BaseUpdateWithNull<T> {
     /**
      * 根据主键更新属性不为null的值
      *

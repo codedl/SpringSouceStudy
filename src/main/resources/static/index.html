@@ -5,8 +5,8 @@
     <title>springboot</title>
 </head>
 <body>
-<form action="/user" method="get">
-    <input type="submit" value="get所有用户">
+<form action="/tk/all" method="get">
+    <input type="submit" value="get所有">
 </form>
 <form action="/user" method="post">
     <input type="submit" value="post所有用户">
@@ -20,10 +20,10 @@
     <input type="submit" value="delete所有用户">
 </form>
 <div>
-    <form  action="/pojo" method="POST">
-        <input type="text" name="name" value="leding">
-        <input type="text" name="age" value="28">
-        <input type="text" name="pet" value="xiaohu,05">
+    <form  action="/tk/update" method="POST">
+        <input type="text" name="callPhone" value="13866163363">
+        <input type="text" name="originalPhone" value="013866163363">
+        <input type="text" name="id" value="1">
         <input type="submit" value="submit">
     </form>
 </div>

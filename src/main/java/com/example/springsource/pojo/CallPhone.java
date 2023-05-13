@@ -1,6 +1,7 @@
 package com.example.springsource.pojo;
 
 import com.example.springsource.tk.WithNull;
+import tk.mybatis.mapper.annotation.ColumnType;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
