@@ -3,11 +3,14 @@ package com.example.springsource.mybatis;
 import com.example.springsource.aop.TxAop;
 import com.example.springsource.mapper.DutyMapper;
 import com.example.springsource.pojo.CallPhone;
+import org.apache.ibatis.session.ResultContext;
+import org.apache.ibatis.session.ResultHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +20,15 @@ public class MybatisController {
     TxAop txAop;
     @Autowired
     DutyMapper dutyMapper;
+
+    class DutyResultHandler implements ResultHandler{
+
+        @Override
+        public void handleResult(ResultContext resultContext) {
+            System.out.println(resultContext.getResultCount());
+            System.out.println(resultContext.getResultObject());
+        }
+    }
 
     @RequestMapping("all/{start}/{size}")
     public Map<Object, CallPhone> getAllCallPhone(@PathVariable("start") Integer start,
@@ -41,5 +53,11 @@ public class MybatisController {
     public int getAll(@PathVariable("phone") String phone){
         CallPhone callPhone = new CallPhone(phone);
         return dutyMapper.insert(callPhone);
+    }
+
+    @RequestMapping("/result/{phone}")
+    public List<CallPhone> result(@PathVariable("phone") String phone){
+        dutyMapper.result(phone, new DutyResultHandler());
+        return new ArrayList<>();
     }
 }

@@ -37,4 +37,8 @@
             (#{phone.callPhone}, #{phone.originalPhone}, now())
     </insert>
 
+    <select id="result" resultMap="callPhoneResult">
+        select * from call_phone
+    </select>
+
 </mapper>

@@ -23,4 +23,7 @@ public interface DutyMapper {
     List<CallPhone> pageSelect();
 
     int insert(@Param("phone") CallPhone callPhone);
+
+    void result(@Param("phone") String callPhone, ResultHandler handler);
+
 }
