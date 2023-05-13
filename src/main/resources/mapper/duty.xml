@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springsource.mapper.DutyMapper" >
+    <cache eviction="FIFO" flushInterval="6000000" readOnly="false" size="1024"></cache>
+    <resultMap id="callPhoneResult" type="CallPhone">
+        <result property="id" column="id"></result>
+        <result property="callPhone" column="call_phone"></result>
+        <result property="operateTime" column="operate_time"></result>
+        <result property="originalPhone" column="original_phone"></result>
+    </resultMap>
+    <select id="getDuty" resultType="map">
+        select * from duty where duty_id = #{id}
+    </select>
+    <update id="updateCallPhone">
+        update call_phone set operate_time = now() where id = #{id}
+    </update>
+    <select id="getCallPhone" resultMap="callPhoneResult" flushCache="false" useCache="true">
+        select * from ${table} where id = #{callPhoneId}
+    </select>
+
+    <select id="getAll" resultMap="callPhoneResult" flushCache="false" useCache="true" >
+        select * from call_phone  limit #{startRow}, #{size}
+    </select>
+
+    <select id="resultHandle" resultMap="callPhoneResult" flushCache="false" useCache="true">
+        select * from call_phone where id = #{id}
+    </select>
+
+    <select id="pageSelect" resultMap="callPhoneResult" flushCache="false" useCache="true">
+        select * from call_phone
+    </select>
+
+    <insert id="insert">
+        insert into call_phone (call_phone, original_phone, operate_time) value
+            (#{phone.callPhone}, #{phone.originalPhone}, now())
+    </insert>
+
+    <select id="result" resultMap="callPhoneResult">
+        select * from call_phone
+    </select>
+
+</mapper>
