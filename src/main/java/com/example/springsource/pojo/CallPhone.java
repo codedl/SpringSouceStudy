@@ -1,6 +1,6 @@
 package com.example.springsource.pojo;
 
-import com.example.springsource.tk.WithNull;
+import com.example.springsource.tk.Required;
 import tk.mybatis.mapper.annotation.ColumnType;
 
 import javax.persistence.Column;
@@ -13,7 +13,7 @@ public class CallPhone implements Serializable {
     @Column(name = "call_phone")
     String callPhone;
     @Column(name = "original_phone")
-    @WithNull
+    @Required
     String originalPhone;
     @Id
     Integer id;
