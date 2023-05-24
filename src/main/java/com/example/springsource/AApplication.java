@@ -18,8 +18,6 @@ public class AApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context =SpringApplication.run(AApplication.class, "name=leding","age=30");
         String[] names = context.getBeanDefinitionNames();
-        Object o1 = context.getBean("&factoryClass");
-        Object o2 = context.getBean("factoryClass");
         for (String name : names){
 //            System.out.println(name);
         }
