@@ -26,7 +26,7 @@ import java.util.Properties;
                 @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}),
         }
 )
-@Component
+//@Component
 public class MyInterceptor implements Interceptor {
     /*@Autowired
     List<SqlSessionFactory> sqlSessionFactoryList;*/

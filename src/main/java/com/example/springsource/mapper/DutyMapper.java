@@ -26,4 +26,6 @@ public interface DutyMapper {
 
     void result(@Param("phone") String callPhone, ResultHandler handler);
 
+    Map getDutyResult(int id, ResultHandler handler);
+
 }

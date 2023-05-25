@@ -13,6 +13,9 @@
     <select id="getDuty" resultType="map">
         select * from duty where duty_id = #{id}
     </select>
+    <select id="getDutyResult" resultType="map">
+        select * from call_phone where id = #{id}
+    </select>
     <update id="updateCallPhone">
         update call_phone set operate_time = now() where id = #{id}
     </update>

@@ -30,6 +30,11 @@ public class MybatisController {
         }
     }
 
+    @RequestMapping("/one/{id}")
+    public Map getAllCallPhone(@PathVariable("id") Integer id){
+        return dutyMapper.getDutyResult(id, new DutyResultHandler());
+    }
+
     @RequestMapping("all/{start}/{size}")
     public Map<Object, CallPhone> getAllCallPhone(@PathVariable("start") Integer start,
                                                   @PathVariable("size") Integer end){
