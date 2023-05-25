@@ -1,9 +1,12 @@
 package com.example.springsource.mvc;
 
 import com.example.springsource.pojo.User;
+import org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.task.AsyncTaskExecutor;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -43,12 +46,17 @@ public class WebConfig  implements WebMvcConfigurer {
     }
 
 
-    @Override
+    @Bean(TaskExecutionAutoConfiguration.APPLICATION_TASK_EXECUTOR_BEAN_NAME)
+    public AsyncTaskExecutor asyncTaskExecutor(){
+        return new SimpleAsyncTaskExecutor("mvc async:");
+    }
+
+/*    @Override
     public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
         configurer.setDefaultTimeout(5000);
         AsyncTaskExecutor executor =new ConcurrentTaskExecutor(Executors.newFixedThreadPool(5));
         configurer.setTaskExecutor(executor);
-    }
+    }*/
 
 
 }

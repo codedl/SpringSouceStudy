@@ -54,8 +54,7 @@ public class AsyncReadController {
     InputStream inputStream = null;
     @GetMapping("/baidu")
     public Callable baidu(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-
+        System.out.println("Controller thread:" + Thread.currentThread().getName());
         URL url = new URL("http://www.baidu.com");
         URLConnection urlConnection = url.openConnection();
         inputStream = urlConnection.getInputStream();
@@ -64,6 +63,7 @@ public class AsyncReadController {
         Callable callable = new Callable() {
             @Override
             public Object call() throws Exception {
+                System.out.println("Callable thread:" + Thread.currentThread().getName());
                 int read = 0;
                 byte[] buffer = new byte[1024];
                 while ((read = inputStream.read(buffer)) != -1){

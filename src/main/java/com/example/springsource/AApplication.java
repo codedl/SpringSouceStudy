@@ -3,6 +3,7 @@ package com.example.springsource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @tk.mybatis.spring.annotation.MapperScan("com.example.springsource.mapper")
 @EnableAsync //创建线程池
 @SpringBootApplication
+@ServletComponentScan("com.example.springsource.nonblocking")
 public class AApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context =SpringApplication.run(AApplication.class, "name=leding","age=30");
