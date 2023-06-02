@@ -17,7 +17,7 @@ import java.io.IOException;
  *
  * @author Copyright (c) 2015, 2017, Oracle and/or its affiliates. All rights reserved.
  */
-@WebServlet(name = "ServerServlet", urlPatterns = {"/server"}, asyncSupported = true)
+//@WebServlet(name = "ServerServlet", urlPatterns = {"/server"}, asyncSupported = true)
 public class ServerServlet extends HttpServlet {
 
     /**
@@ -37,6 +37,7 @@ public class ServerServlet extends HttpServlet {
         final AsyncContext context = request.startAsync();
         final ServletOutputStream output = response.getOutputStream();
         output.setWriteListener(new WriteListenerImpl(output, context));
+
     }
 
     @Override

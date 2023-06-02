@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @tk.mybatis.spring.annotation.MapperScan("com.example.springsource.mapper")
 @EnableAsync //创建线程池
 @SpringBootApplication
-@ServletComponentScan("com.example.springsource.nonblocking")
+//@ServletComponentScan("com.example.springsource.nonblocking")
 public class AApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context =SpringApplication.run(AApplication.class, "name=leding","age=30");

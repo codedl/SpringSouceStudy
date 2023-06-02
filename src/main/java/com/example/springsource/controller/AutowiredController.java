@@ -1,6 +1,6 @@
 package com.example.springsource.controller;
 
-import com.example.springsource.event.CustEvent;
+import com.example.springsource.observer.event.CustEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -55,10 +55,7 @@ public class AutowiredController {
         return responseResult;
     }
 
-    @RequestMapping("event")
-    public void event(){
-        context.publishEvent(new CustEvent(this,"hello event"));
-    }
+
 
 
     @RequestMapping("test")
