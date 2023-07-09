@@ -10,11 +10,15 @@ import java.util.Date;
 @RestController
 @RequestMapping("/hbn")
 public class HbnController {
-    @GetMapping("/test")
+    @GetMapping("/event/save")
     public void save(){
         createAndStoreEvent("My Event", new Date());
     }
 
+    @GetMapping("/event/join")
+    public void join(){
+        addPersonToEvent(1l,1l);
+    }
 
     private void createAndStoreEvent(String title, Date theDate) {
 
