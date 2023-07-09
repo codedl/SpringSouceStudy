@@ -17,12 +17,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 //@ServletComponentScan("com.example.springsource.nonblocking")
 public class AApplication {
+
     public static void main(String[] args) {
         ConfigurableApplicationContext context =SpringApplication.run(AApplication.class, "name=leding","age=30");
         String[] names = context.getBeanDefinitionNames();
-        for (String name : names){
+//        for (String name : names){
 //            System.out.println(name);
-        }
+//        }
 
     }
 
