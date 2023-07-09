@@ -2,7 +2,6 @@ package com.example.springsource.aop;
 
 import com.example.springsource.mapper.DutyMapper;
 import com.example.springsource.pojo.CallPhone;
-import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,7 +20,7 @@ public class TxAop {
     }
 
     public  List<CallPhone> pageSelect(int startRow, int size){
-        PageHelper.startPage(startRow, size);
+//        PageHelper.startPage(startRow, size);
         return dutyMapper.pageSelect();
     }
 
