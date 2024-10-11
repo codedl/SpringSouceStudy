@@ -20,6 +20,15 @@ public class Person {
     }
     public Person() {}
 
+    private Set emailAddresses = new HashSet();
+
+    public Set getEmailAddresses() {
+        return emailAddresses;
+    }
+
+    public void setEmailAddresses(Set emailAddresses) {
+        this.emailAddresses = emailAddresses;
+    }
     public Long getId() {
         return id;
     }

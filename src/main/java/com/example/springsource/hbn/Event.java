@@ -1,6 +1,8 @@
 package com.example.springsource.hbn;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Event {
     private Long id;
@@ -9,7 +11,15 @@ public class Event {
     private Date date;
 
     public Event() {}
+    private Set participants = new HashSet();
 
+    public Set getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(Set participants) {
+        this.participants = participants;
+    }
     public Long getId() {
         return id;
     }

@@ -5,5 +5,9 @@
         </id>
         <property name="date" type="timestamp" column="EVENT_DATE"/>
         <property name="title"/>
+        <set name="participants" table="PERSON_EVENT" inverse="true">
+            <key column="EVENT_ID"/>
+            <many-to-many column="PERSON_ID" class="com.example.springsource.hbn.Person"/>
+        </set>
     </class>
 </hibernate-mapping>
