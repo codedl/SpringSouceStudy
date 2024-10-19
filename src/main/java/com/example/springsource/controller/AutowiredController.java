@@ -4,9 +4,7 @@ import com.example.springsource.observer.event.CustEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.springsource.pojo.AdviserUser;
 import com.example.springsource.pojo.AutowiredTypeUser;
 import com.example.springsource.pojo.BeanUser;
@@ -36,6 +34,11 @@ public class AutowiredController {
     public AutowiredController() {
     }
 
+    @GetMapping
+    public String test(){
+        return "test";
+    }
+
     @RequestMapping("serverName")
     public String serverName(){
         return serverName;
@@ -46,7 +49,7 @@ public class AutowiredController {
         return adviserUser.div(arg1,arg2);
     }
 
-    @RequestMapping("res")
+    @RequestMapping(value = "res")
     public ResponseResult getResult(){
         ResponseResult responseResult = new ResponseResult();
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
