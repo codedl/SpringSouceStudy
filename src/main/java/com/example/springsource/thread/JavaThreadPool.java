@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class JavaThreadPool {
     public static void main(String[] args) {
         int corePoolSize = 2;
-        int maximumPoolSize = 3;
+        int maximumPoolSize = 8;
         long keepAliveTime = 1000;
         BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(2);
         DefaultThreadFactory threadFactory = new DefaultThreadFactory();
@@ -19,20 +19,16 @@ public class JavaThreadPool {
                 threadFactory,
                 handler);
         int reject = 0;
-        /*for (int i = 0; i < 25; i ++){
+        for (int i = 0; i < 25; i ++){
             try {
-                executor.execute(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        try {
-                            Thread.currentThread().sleep(120000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        System.out.println("执行完毕");
+                executor.execute(() -> {
+                    try {
+                        TimeUnit.SECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
+
+                    System.out.println("10s到了");
                 });
                 System.out.println( "线程池中线程数目："+executor.getPoolSize()+
                         "，队列中等待执行的任务数目："+ executor.getQueue().size()+
@@ -41,9 +37,9 @@ public class JavaThreadPool {
                 e.printStackTrace();
                 System.out.println("线程处理失败次数"+(++reject));
             }
-        }*/
+        }
 
-        for (int i = 0; i < 25; i ++){
+/*        for (int i = 0; i < 25; i ++){
             try {
                 Future future = executor.submit(new Callable() {
                     @Override
@@ -57,10 +53,7 @@ public class JavaThreadPool {
                 e.printStackTrace();
 
             }
-        }
-
-
-
+        }*/
 
         executor.shutdown();
     }
