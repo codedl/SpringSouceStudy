@@ -1,7 +1,7 @@
 package com.example.springsource.thread;
 
 public class ThreadLocalTest {
-    public static ThreadLocal local = new ThreadLocal();
+    public static ThreadLocal<String> local = new ThreadLocal<>();
 
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++){

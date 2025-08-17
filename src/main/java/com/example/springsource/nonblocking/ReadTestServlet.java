@@ -79,7 +79,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Arun Gupta
  */
-//@WebServlet(urlPatterns = { "/ReadTestServlet" }, asyncSupported = true)
+@WebServlet(urlPatterns = { "/ReadTestServlet" }, asyncSupported = true)
 public class ReadTestServlet extends HttpServlet {
 
     /**
